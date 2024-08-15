@@ -40,11 +40,12 @@ const options = {
 
 const LineProd = () => {
   const [chartData, setChartData] = useState(null);
+  const apiUrl = process.env.NEXT_PUBLIC_BACKEND_API_URL;
 
   useEffect(() => {
     const fetchTemp = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:5000/api/node1', {
+        const response = await fetch(`${apiUrl}/api/node1`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

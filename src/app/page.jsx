@@ -36,7 +36,7 @@ export default function Home() {
     const newState = !pumpOn
     setPumpOn(newState);
 
-    axios.post('http://127.0.0.1:5000/api/pump', {state: newState},{
+    axios.post(`${apiUrl}/api/pump`, {state: newState},{
       headers: {
         'Content-Type': 'application/json'
       }
