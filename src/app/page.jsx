@@ -8,7 +8,7 @@ import Image from "next/image";
 import axios from "axios";
 
 export default function Home() {
-  const apiUrl = process.env.BACKEND_API_URL;
+  const apiUrl = process.env.NEXT_PUBLIC_BACKEND_API_URL;
 
   const [data, setData] = useState([]);
   const [temp, setTemp] = useState(0);
@@ -93,7 +93,7 @@ export default function Home() {
                     style={{height:"auto"}}
                   />
                 </div>
-              </CardBody>
+              </CardBody>  
             </Card>
           </div>
           <div className="container mx-auto justify-center mt-5">
