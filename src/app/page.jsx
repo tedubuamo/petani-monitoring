@@ -8,6 +8,7 @@ import Image from "next/image";
 import axios from "axios";
 
 export default function Home() {
+  const apiUrl = process.env.BACKEND_API_URL;
 
   const [data, setData] = useState([]);
   const [temp, setTemp] = useState(0);
@@ -17,7 +18,7 @@ export default function Home() {
   const [pumpOn, setPumpOn] = useState(false);
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:5000/monitoring/node1')
+    axios.get(`${apiUrl}/monitoring/node1`)
       .then((response) => {
         setData(response.data.data);
         setTemp(response.data.temp);
