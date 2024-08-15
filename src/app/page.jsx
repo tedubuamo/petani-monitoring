@@ -18,6 +18,7 @@ export default function Home() {
   const [pumpOn, setPumpOn] = useState(false);
 
   useEffect(() => {
+    console.log("api url:", apiUrl)
     axios.get(`${apiUrl}/monitoring/node1`)
       .then((response) => {
         setData(response.data.data);
