@@ -10,6 +10,8 @@ import { faCircleQuestion } from "@fortawesome/free-regular-svg-icons";
 import ProfileButton from "./ProfileButton";
 import { poppins } from "@/app/fonsts";
 
+const apiUrl = process.env.NEXT_PUBLIC_BACKEND_API_URL;
+
 const MyNavbarMenu = ({ activeIndex }) => {
   return (
     <NavbarMenu
@@ -32,7 +34,7 @@ const MyNavbarMenu = ({ activeIndex }) => {
       <NavbarMenuItem className={activeIndex == 1 ? "text-[#81FE05]" : ""}>
         <Link
           color="foreground"
-          href="http://localhost:3001/prediksi"
+          href= {`${apiUrl}/prediksi`}
           className="flex flex-row gap-1 text-medium"
         >
           <FontAwesomeIcon icon={faLineChart} size="lg" className="basis-1/3" />
@@ -42,7 +44,7 @@ const MyNavbarMenu = ({ activeIndex }) => {
       <NavbarMenuItem className={activeIndex == 2 ? "text-[#81FE05]" : ""}>
         <Link
           color="foreground"
-          href="http://localhost:3001/bantuan"
+          href={`${apiUrl}/bantuan`}
           className="flex flex-row gap-1 text-medium"
         >
           <FontAwesomeIcon
