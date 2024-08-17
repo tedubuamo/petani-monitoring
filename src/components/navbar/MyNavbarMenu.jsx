@@ -10,7 +10,7 @@ import { faCircleQuestion } from "@fortawesome/free-regular-svg-icons";
 import ProfileButton from "./ProfileButton";
 import { poppins } from "@/app/fonsts";
 
-const apiUrl = process.env.NEXT_PUBLIC_BACKEND_API_URL;
+const apiUrl = process.env.NEXT_PUBLIC_FRONTEND_API_URL;
 
 const MyNavbarMenu = ({ activeIndex }) => {
   return (
