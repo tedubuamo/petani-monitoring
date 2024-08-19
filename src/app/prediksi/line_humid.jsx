@@ -38,7 +38,7 @@ const options = {
     }
 };
 
-const LineMoist = () => {
+const LineHumid = () => {
   const [chartData, setChartData] = useState(null);
   const apiUrl = process.env.NEXT_PUBLIC_BACKEND_API_URL;
 
@@ -56,7 +56,7 @@ const LineMoist = () => {
 
         // Process the data here and set it to chartData state
         let labels = data.data_sensor.map(item => item.time);
-        let moist = data.data_sensor.map(item => item.moist);
+        let moist = data.data_sensor.map(item => item.humid);
  
         labels = labels.reverse()
         moist = moist.reverse()
@@ -64,7 +64,7 @@ const LineMoist = () => {
           labels,
           datasets: [
             {
-              label: 'Moist',
+              label: 'Humidity',
               data: moist,
               borderColor: 'green',
               borderWidth: 1,
@@ -94,4 +94,4 @@ const LineMoist = () => {
   );
 };
 
-export default LineMoist;
+export default LineHumid;

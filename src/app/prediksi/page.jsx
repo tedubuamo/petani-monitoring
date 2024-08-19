@@ -6,7 +6,7 @@ import { poppins } from "../fonsts";
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
 import LineTemp from "./line_temp";
 import LineSoil from "./line_soil";
-import LineMoist from "./line_moist";
+import LineHumid from "./line_humid";
 import LineLumen from "./line_lumen";
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
@@ -66,7 +66,7 @@ export default function Home() {
               </CardHeader>
             </Card>
             <div className="mt-3" style={{ backgroundColor: '#FFFFFF', padding: '20px', borderRadius: '10px' }}>
-              <LineMoist />
+              <LineHumid />
             </div>
           </div>
           <div className="container mx-auto justify-center mt-5">
