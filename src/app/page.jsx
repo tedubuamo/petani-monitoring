@@ -13,7 +13,7 @@ export default function Home() {
   const [data, setData] = useState([]);
   const [temp, setTemp] = useState(0);
   const [soil, setSoil] = useState(0);
-  const [moist, setMoist] = useState(0);
+  const [humid, setHumid] = useState(0);
   const [lumen, setLumen] = useState(0);
   const [pumpOn, setPumpOn] = useState(false);
 
@@ -24,7 +24,7 @@ export default function Home() {
         setData(response.data.data);
         setTemp(response.data.temp);
         setSoil(response.data.soil);
-        setMoist(response.data.moist);
+        setHumid(response.data.humid);
         setLumen(response.data.lumen);
     })
       .catch(error =>{
@@ -142,7 +142,7 @@ export default function Home() {
                 <span
                   className={`text-center grow text-[55px] ${poppins.className}`}
                 >
-                  {moist}
+                  {humid}
                 </span>
                 <div className="flex-none flex">
                   <Image
