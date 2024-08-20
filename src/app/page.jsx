@@ -24,7 +24,7 @@ export default function Home() {
         setData(response.data.data);
         setTemp(response.data.temp);
         setSoil(response.data.soil);
-        setHumid(response.data.humid);
+        setHumid(response.data.moist);
         setLumen(response.data.lumen);
     })
       .catch(error =>{
