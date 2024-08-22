@@ -56,7 +56,7 @@ const LineHumid = () => {
 
         // Process the data here and set it to chartData state
         let labels = data.data_sensor.map(item => item.time);
-        let moist = data.data_sensor.map(item => item.moist);
+        let moist = data.data_sensor.map(item => item.humid);
  
         labels = labels.reverse()
         moist = moist.reverse()
