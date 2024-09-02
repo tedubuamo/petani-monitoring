@@ -3,7 +3,6 @@
 import MyNavbar from "@/components/navbar/MyNavbar";
 import { poppins } from "@/app/fonsts";
 
-
 export default function Home() {
     return (
       <>

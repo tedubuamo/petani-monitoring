@@ -16,7 +16,7 @@ import Image from "next/image";
 
 const MyNavbar = ({ activeIndex }) => {
   const { isToggleActive, handleToggle } = useNavbarMenu();
-
+  
   return (
     <>
       <Navbar

@@ -4,7 +4,7 @@ import MyNavbar from "@/components/navbar/MyNavbar";
 import { Card, CardBody, CardHeader, Divider } from "@nextui-org/react";
 import { poppins } from "./fonsts";
 import { useEffect, useState } from "react";
-import { useRouter } from 'next/navigation'
+import { redirect, useRouter } from 'next/navigation'
 import Image from "next/image";
 import axios from "axios";
 
@@ -20,51 +20,28 @@ export default function Home() {
   const [lumen, setLumen] = useState(0);
   const [pumpOn, setPumpOn] = useState(false);
 
-  // useEffect(() => {
-  //   console.log("api url:", apiUrl)
-  //   axios.get(`${apiUrl}/monitoring/node1`)
-  //     .then((response) => {
-  //       setData(response.data.data);
-  //       setTemp(response.data.temp);
-  //       setSoil(response.data.soil);
-  //       setHumid(response.data.humid);
-  //       setLumen(response.data.lumen);
-  //   })
-  //     .catch(error =>{
-  //       console.error("There was an error fetching the data!", error);
-  //     })
-  //   }, []);
-  useEffect(() => {
-    // Redirect ke login jika token tidak ada
-    if (!token) {
-      router.push('/login');
-      return;
+  
+  const fetchData = async () => {
+    const { user } = JSON.parse(localStorage.getItem("user")) ;
+    const { id_gh } = user[0];
+
+    try {
+      const response = await axios.get(`${apiUrl}/monitoring/node${id_gh}`, {
+        headers: {
+          Authorization: `Bearer ${token}`, 
+        },
+      });
+
+      setData(response.data.data);
+      setTemp(response.data.temp);
+      setSoil(response.data.soil);
+      setHumid(response.data.humid);
+      setLumen(response.data.lumen);
+    } catch (error) {
+      console.error("There was an error fetching the data!", error);
     }
+  };
 
-    const fetchData = async () => {
-      try {
-        console.log("API URL:", apiUrl);
-        const response = await axios.get(`${apiUrl}/monitoring/node1`, {
-          headers: {
-            Authorization: `Bearer ${token}`, // Sertakan token dalam header Authorization
-          },
-        });
-        
-        setData(response.data.data);
-        setTemp(response.data.temp);
-        setSoil(response.data.soil);
-        setHumid(response.data.humid);
-        setLumen(response.data.lumen);
-      } catch (error) {
-        console.error("There was an error fetching the data!", error);
-        // Tambahkan logika tambahan, misalnya mengarahkan ke halaman error atau menampilkan pesan error.
-      }
-    };
-
-    fetchData();
-  }, [apiUrl, router, token]); // Tambahkan apiUrl, router, dan token sebagai dependencies
-
-  if (!token) return null;
   
   const handlePumpToggle = () => {
     const newState = !pumpOn
@@ -83,6 +60,15 @@ export default function Home() {
       });
   };
   
+
+  useEffect(() => {
+    if (localStorage.getItem("user") === null) { 
+      redirect('/login')
+    } else {
+      fetchData();
+    }
+  }, []); 
+
   return (
     <>
       <MyNavbar activeIndex={0}/>

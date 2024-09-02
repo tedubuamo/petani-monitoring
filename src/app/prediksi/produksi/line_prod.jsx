@@ -10,7 +10,7 @@ const options = {
         legend: {
             display: false
 
-        }
+      }
     },
     scales: {
         x: {

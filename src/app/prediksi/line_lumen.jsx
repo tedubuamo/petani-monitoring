@@ -44,8 +44,11 @@ const LineLumen = () => {
 
   useEffect(() => {
     const fetchLumen = async () => {
+      const { user } = JSON.parse(localStorage.getItem("user")) ;
+      const { id_gh } = user[0];
+
       try {
-        const response = await fetch(`${apiUrl}/line/node1`, {
+        const response = await fetch(`${apiUrl}/line/node${id_gh}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

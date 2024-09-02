@@ -1,14 +1,16 @@
-"use client";
+"use client"
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { NextRequest, NextResponse } from 'next/server';
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const router = useRouter();
+  const [message, setMessage] = useState('');
   const apiUrl = process.env.NEXT_PUBLIC_BACKEND_API_URL;
+  const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,16 +22,27 @@ export default function Login() {
       body: JSON.stringify({ email, password }),
     });
 
-   if (response.ok) {
+    if (response.ok) {
+      const user = await response.json();
+      localStorage.setItem("user", JSON.stringify(user));
+      
       router.push('/');
     } else {
       const data = await response.json();
-      console.error(data.message || 'failed to login');
-    // const data = await response.json();
-    // console.log(data);
-  
-      }
+      setMessage(data.error);
+      router.push('/login');
+    }
   };
+
+  useEffect(() => {
+    const data = localStorage.getItem("user");
+    
+    if (data) {
+      router.push('/');
+    } else {
+      router.push('/login');
+    }
+  }, [])
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-teal-400 to-green-600">
@@ -72,6 +85,11 @@ export default function Login() {
             Forgot Password?
           </Link>
         </p>
+        {message != null ? (
+          <div>
+            <p className="text-red-500 text-center mt-2">{message}</p>
+          </div>
+        ) : null}
       </div>
     </div>
   );

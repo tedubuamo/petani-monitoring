@@ -9,10 +9,20 @@ import {
 import { faCircleQuestion } from "@fortawesome/free-regular-svg-icons";
 import ProfileButton from "./ProfileButton";
 import { poppins } from "@/app/fonsts";
+import { useRouter } from "next/navigation";
 
 const apiUrl = process.env.NEXT_PUBLIC_FRONTEND_API_URL;
 
 const MyNavbarMenu = ({ activeIndex }) => {
+  const router = useRouter();
+
+  const handleLogout = (e) => {
+    e.preventDefault()
+    console.log("test")
+    localStorage.clear()
+    router.push("/login");
+  }
+
   return (
     <NavbarMenu
       className="text-[#D0D0D0] border-black border-t-1.5 px-0 w-[40%] gap-y-4 shadow-large navbar"
@@ -55,10 +65,10 @@ const MyNavbarMenu = ({ activeIndex }) => {
           <p className={"basis-2/3 " + poppins.className}>Bantuan</p>
         </Link>
       </NavbarMenuItem>
-      <NavbarMenuItem className={activeIndex == 3 ? "text-[#81FE05]" : ""}>
+      <NavbarMenuItem className={activeIndex == 3 ? "text-[#81FE05]" : ""} onClick={handleLogout}>
         <Link
           color="foreground"
-          href="#"
+          href="#/"
           className="flex flex-row gap-1 text-medium"
         >
           <FontAwesomeIcon
