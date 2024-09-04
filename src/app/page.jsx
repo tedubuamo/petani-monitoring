@@ -124,7 +124,7 @@ export default function Home() {
                   KELEMBABAN TANAH
                 </p>
                 <p className={`text-center text-white text-[15px] ${poppins.className}`}>
-                  Kelembapan Relative (RH)
+                  Kelembapan (RH)
                 </p>
               </CardHeader>
               <Divider />
@@ -154,7 +154,7 @@ export default function Home() {
                   KELEMBAPAN UDARA
                 </p>
                 <p className={`text-center text-white text-[15px] ${poppins.className}`}>
-                  Kelembaban Relative (RH)
+                  Kelembaban (RH)
                 </p>
               </CardHeader>
               <Divider />
@@ -192,7 +192,7 @@ export default function Home() {
                 <span
                   className={`text-center grow text-[55px] ${poppins.className}`}
                 >
-                  {lumen}lux
+                  {lumen} lux
                 </span>
                 <div className="flex-none flex">
                   <Image
