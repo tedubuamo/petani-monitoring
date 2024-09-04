@@ -4,7 +4,10 @@ import Image from "next/image";
 import React, { useContext } from "react";
 
 const ProfileButton = () => {
-  const userCtx = useContext(UserContext);
+  const { user } = JSON.parse(localStorage.getItem("user"));
+  const { id_gh } = user[0]
+  const { username } = user[0]
+
   return (
     <div
       className={
@@ -25,11 +28,11 @@ const ProfileButton = () => {
       <div className="flex flex-col items-start justify-start pt-[5px] px-0 pb-0">
         <div className="flex flex-col items-start justify-start">
           <div className="relative leading-[140%] text-[12px] inline-block min-w-[77px]">
-            {userCtx.loggedUser.name}
+            {username}
           </div>
           <div className="flex flex-row items-start justify-start py-0 px-px text-[10px] text-gray-300">
             <div className="relative leading-[140%] inline-block ">
-              {userCtx.loggedUser.greenHouse}
+              Greenhouse {id_gh}
             </div>
           </div>
         </div>

@@ -77,16 +77,16 @@ export default function Home() {
           <p className={`text-[25px] text-center ${poppins.className}`}>
             Monitoring
           </p>
-          <div className="pump">
-            <button
+          {/* <div className="pump">
               onClick={handlePumpToggle}
+            <button
               className={`mt-6 ml-12 text-center grow text-[20px] ${poppins.className} ${pumpOn ? 'bg-green-500' : 'bg-red-500'} text-white px-6 py-2 rounded`}>
               {pumpOn ? 'Turn Off' : 'Turn On'}
             </button>
             <span className={`ml-3 text-[20px] ${poppins.className}`}>
               {pumpOn ? 'Pompa Menyala' : 'Pompa Mati'}
             </span>
-          </div>
+          </div> */}
           <div className="container mx-auto justify-center mt-5">
             <Card className="mx-auto w-[78%]">
               <CardHeader className="block" style={{ backgroundColor: '#336600' }}>
@@ -102,7 +102,7 @@ export default function Home() {
                 <span
                   className={`text-center grow text-[55px] ${poppins.className}`}
                 >
-                  {temp}
+                  {temp}°C
                 </span>
                 <div className="flex-none flex">
                   <Image
@@ -124,7 +124,7 @@ export default function Home() {
                   KELEMBABAN TANAH
                 </p>
                 <p className={`text-center text-white text-[15px] ${poppins.className}`}>
-                  Kelembaban Relative (RH)
+                  Kelembapan Relative (RH)
                 </p>
               </CardHeader>
               <Divider />
@@ -132,7 +132,7 @@ export default function Home() {
                 <span
                   className={`text-center grow text-[55px] ${poppins.className}`}
                 >
-                  {soil}
+                  {soil}%
                 </span>
                 <div className="flex-none flex">
                   <Image
@@ -154,7 +154,7 @@ export default function Home() {
                   KELEMBAPAN UDARA
                 </p>
                 <p className={`text-center text-white text-[15px] ${poppins.className}`}>
-                  Kelembapan Relative (RH)
+                  Kelembaban Relative (RH)
                 </p>
               </CardHeader>
               <Divider />
@@ -162,7 +162,7 @@ export default function Home() {
                 <span
                   className={`text-center grow text-[55px] ${poppins.className}`}
                 >
-                  {humid}
+                  {humid}%
                 </span>
                 <div className="flex-none flex">
                   <Image
@@ -184,7 +184,7 @@ export default function Home() {
                   INTENSITAS CAHAYA
                 </p>
                 <p className={`text-center text-white text-[15px] ${poppins.className}`}>
-                  Candela (Cd)
+                  Lux (lux)
                 </p>
               </CardHeader>
               <Divider />
@@ -192,7 +192,7 @@ export default function Home() {
                 <span
                   className={`text-center grow text-[55px] ${poppins.className}`}
                 >
-                  {lumen}
+                  {lumen}lux
                 </span>
                 <div className="flex-none flex">
                   <Image
