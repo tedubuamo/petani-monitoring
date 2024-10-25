@@ -45,7 +45,7 @@ const LineLumen = () => {
   useEffect(() => {
     const fetchLumen = async () => {
       const { farmer } = JSON.parse(localStorage.getItem("user")) ;
-      // const { id_gh } = farmer[0];
+      const { id_gh } = farmer[0];
 
       try {
         const response = await fetch(`${apiUrl}/line/node${id_gh}`, {
