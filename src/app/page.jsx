@@ -41,24 +41,6 @@ export default function Home() {
       console.error("There was an error fetching the data!", error);
     }
   };
-
-  
-  const handlePumpToggle = () => {
-    const newState = !pumpOn
-    setPumpOn(newState);
-
-    axios.post(`${apiUrl}/api/pump`, {state: newState},{
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-      .then((response) =>{
-        console.log("Pump state updated!", response.data);
-      })
-      .catch(error => {
-        console.error("There was an error updating the pump state!", error);
-      });
-  };
   
 
   useEffect(() => {
@@ -77,16 +59,6 @@ export default function Home() {
           <p className={`text-[25px] text-center ${poppins.className}`}>
             Monitoring
           </p>
-          {/* <div className="pump">
-              onClick={handlePumpToggle}
-            <button
-              className={`mt-6 ml-12 text-center grow text-[20px] ${poppins.className} ${pumpOn ? 'bg-green-500' : 'bg-red-500'} text-white px-6 py-2 rounded`}>
-              {pumpOn ? 'Turn Off' : 'Turn On'}
-            </button>
-            <span className={`ml-3 text-[20px] ${poppins.className}`}>
-              {pumpOn ? 'Pompa Menyala' : 'Pompa Mati'}
-            </span>
-          </div> */}
           <div className="container mx-auto justify-center mt-5">
             <Card className="mx-auto w-[78%]">
               <CardHeader className="block" style={{ backgroundColor: '#336600' }}>
