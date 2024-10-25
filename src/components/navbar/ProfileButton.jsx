@@ -4,9 +4,9 @@ import Image from "next/image";
 import React, { useContext } from "react";
 
 const ProfileButton = () => {
-  const { user } = JSON.parse(localStorage.getItem("user"));
-  const { id_gh } = user[0]
-  const { username } = user[0]
+  const { farmer } = JSON.parse(localStorage.getItem("user"));
+  const { id_gh } = farmer[0]
+  const { username } = farmer[0]
 
   return (
     <div

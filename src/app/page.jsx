@@ -22,8 +22,9 @@ export default function Home() {
 
   
   const fetchData = async () => {
-    const { user } = JSON.parse(localStorage.getItem("user")) ;
-    const { id_gh } = user[0];
+    const { farmer } = JSON.parse(localStorage.getItem("user")) ;
+    console.log(farmer)
+    const { id_gh } = farmer[0];
 
     try {
       const response = await axios.get(`${apiUrl}/monitoring/node${id_gh}`, {

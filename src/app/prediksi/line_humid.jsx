@@ -44,8 +44,8 @@ const LineHumid = () => {
 
   useEffect(() => {
     const fetchMoist = async () => {
-      const { user } = JSON.parse(localStorage.getItem("user")) ;
-      const { id_gh } = user[0];
+      const { farmer } = JSON.parse(localStorage.getItem("user")) ;
+      // const { id_gh } = farmer[0];
 
       try {
         const response = await fetch(`${apiUrl}/line/node${id_gh}`, {
