@@ -18,12 +18,10 @@ export default function Home() {
   const [soil, setSoil] = useState(0);
   const [humid, setHumid] = useState(0);
   const [lumen, setLumen] = useState(0);
-  const [pumpOn, setPumpOn] = useState(false);
 
   
   const fetchData = async () => {
-    const { farmer } = JSON.parse(localStorage.getItem("user")) ;
-    console.log(farmer)
+    const { farmer } = JSON.parse(localStorage.getItem("user"));
     const { id_gh } = farmer[0];
 
     try {
