@@ -13,7 +13,6 @@ export default function Providers({ children }) {
 
   useEffect(() => {
     const userData = JSON.parse(localStorage.getItem("user"));
-    console.log(userData);
       const { id_gh, name } = userData.farmer[0];
       setLoggedUser({
         name: name,
